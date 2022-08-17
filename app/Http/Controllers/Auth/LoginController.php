@@ -18,6 +18,6 @@ class LoginController extends Controller
             // return redirect('/beranda');
             return "berhasil";
         }
-        return redirect('/')->with('error', 'Your username and password are invalid!');
+        return redirect('/')->with('error', 'Your Email and Password are invalid!');
     }
 }

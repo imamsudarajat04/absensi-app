@@ -21,6 +21,12 @@
 		      	<div class="icon d-flex align-items-center justify-content-center">
 		      		<span class="fa fa-user-o"></span>
 		      	</div>
+
+                <!-- Alert -->
+                @if ($message = Session::get('error'))
+                    <script>window.alert("{{ $message }}")</script>
+                @endif
+
 		      	<h3 class="text-center mb-4">Have an account?</h3>
 						<form action="{{ route('login.store') }}" method="POST" class="login-form">
                             @csrf
