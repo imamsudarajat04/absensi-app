@@ -16,8 +16,21 @@ class LoginController extends Controller
         if(Auth::attempt($request->only('email', 'password')))
         {
             // return redirect('/beranda');
+            if(Auth::user()->role == 'admin')
+            {
+                return "admin";
+            }else{
+                return "karyawan";
+            }
+
             return "berhasil";
         }
-        return redirect('/')->with('error', 'Your Email and Password are invalid!');
+        return redirect('/')->with('info', 'Your Email and Password are invalid!');
+    }
+
+    public function logout() 
+    {
+        Auth::logout();
+        return redirect()->route('login')->with('info', 'Success Logout!');
     }
 }

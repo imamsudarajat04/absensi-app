@@ -16,6 +16,7 @@ use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', LoginController::class . '@showLoginForm')->name('login');
 Route::post('/login', LoginController::class . '@login')->name('login.store');
+Route::get('/logout', LoginController::class . '@logout')->name('logout'); 
 
 Route::group(['middleware' => ['auth','CekRole:admin,karyawan']], function() {
     return "tes";
